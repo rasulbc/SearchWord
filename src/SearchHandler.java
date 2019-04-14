@@ -17,25 +17,26 @@ public void incrementWordCount(int word){
 }
 public void run(){
     try {
-        Thread temp =null;
-        ObjectInputStream a = new ObjectInputStream(request.getInputStream());
-        Document s = (Document)a.readObject();
-        File folder = new File(s.directory);
-        File[] listOfFiles = folder.listFiles();
-        for(File x: listOfFiles){
-          if(x.isFile()){
-              temp = new Thread(new FileHandler(this,x,s.name));
-              temp.start();
+        System.out.println("Server");
+//         Thread temp =null;
+//         ObjectInputStream a = new ObjectInputStream(request.getInputStream());
+//         Document s = (Document)a.readObject();
+//         File folder = new File(s.directory);
+//         File[] listOfFiles = folder.listFiles();
+//         for(File x: listOfFiles){
+//           if(x.isFile()){
+//               temp = new Thread(new FileHandler(this,x,s.name));
+//               temp.start();
 
 
-          }
-        }
+//           }
+//         }
 
-        if(temp!=null)temp.join();
+//         if(temp!=null)temp.join();
 
 
-        request.close();
-        System.out.println(wordCount);
+//         request.close();
+//         System.out.println(wordCount);
     }catch (IOException e){
         e.printStackTrace();
     }catch (ClassNotFoundException e){
